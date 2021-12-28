@@ -6,7 +6,12 @@ contract LinCoin {
     // Set The Total number of tokens
     // read the total number of tokens
     uint256 public totalSupply;
-    constructor(){
-        totalSupply = 100000;
+
+    mapping(address => uint256) public balanceOf;
+
+    constructor(uint256 _initialSupply){
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
+        // alocatte initail supply
     }
 }
